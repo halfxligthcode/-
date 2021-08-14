@@ -1,49 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <title>Сайт кицика</title>
-
-</head>
-<body>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Данные из индекса</h1>
 
 
-<form action="{% url 'thx_page' %}" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Отправить</button>
-</form>
+  <style>
+   body {
+    background: #c7b39b url(static/img/0.jpg)no-repeat; /* Цвет фона и путь к файлу */
+    color: #fff;
+   }
+  </style>
 
-{% if object_list %}
-<table border="1">
-
-    <tr>
-        <th>id</th>
-        <th>Дата</th>
-        <th>Имя</th>
-        <th>Телефон</th>
-    </tr>
-{% for obj in object_list %}
-    <tr>
-        <th>{{ obj.id }}</th>
-        <th>{{ obj.order_datatime }}</th>
-        <th>{{ obj.order_name }}</th>
-        <th>{{ obj.order_phone }}</th>
-    </tr>
-{% endfor %}
-
-</table>
-{% else %}
-Нет данных
-{% endif %}
-
-</body>
-</html>
+{% endblock %}
